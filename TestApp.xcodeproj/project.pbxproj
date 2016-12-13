@@ -31,7 +31,7 @@
 		878667921DFFE33200587FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		878667951DFFE33200587FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878667971DFFE33200587FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		878667A81DFFE64E00587FA8 /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellIdentifiable.swift; path = Protocols/CellIdentifiable.swift; sourceTree = "<group>"; };
+		878667A81DFFE64E00587FA8 /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CellIdentifiable.swift; sourceTree = "<group>"; };
 		878667AA1DFFE77000587FA8 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paginator.swift; path = Classes/Paginator.swift; sourceTree = "<group>"; };
 		878667AC1DFFF15B00587FA8 /* OperationQueueHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperationQueueHandler.swift; path = Classes/OperationQueueHandler.swift; sourceTree = "<group>"; };
 		878667AE1DFFF21500587FA8 /* ImadeDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImadeDownloadOperation.swift; path = Classes/ImadeDownloadOperation.swift; sourceTree = "<group>"; };
@@ -157,7 +157,7 @@
 			children = (
 				878667A81DFFE64E00587FA8 /* CellIdentifiable.swift */,
 			);
-			name = Protocols;
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		878667B01DFFF29B00587FA8 /* CoreNetworking */ = {
