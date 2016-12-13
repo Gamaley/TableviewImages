@@ -12,6 +12,15 @@
 		878667911DFFE33200587FA8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8786678F1DFFE33200587FA8 /* Main.storyboard */; };
 		878667931DFFE33200587FA8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 878667921DFFE33200587FA8 /* Assets.xcassets */; };
 		878667961DFFE33200587FA8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 878667941DFFE33200587FA8 /* LaunchScreen.storyboard */; };
+		878667A91DFFE64E00587FA8 /* CellIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667A81DFFE64E00587FA8 /* CellIdentifiable.swift */; };
+		878667AB1DFFE77000587FA8 /* Paginator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667AA1DFFE77000587FA8 /* Paginator.swift */; };
+		878667AD1DFFF15B00587FA8 /* OperationQueueHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667AC1DFFF15B00587FA8 /* OperationQueueHandler.swift */; };
+		878667AF1DFFF21500587FA8 /* ImadeDownloadOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667AE1DFFF21500587FA8 /* ImadeDownloadOperation.swift */; };
+		878667B21DFFF2C400587FA8 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667B11DFFF2C400587FA8 /* ImageModel.swift */; };
+		878667B41DFFF96100587FA8 /* ImageFilterOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667B31DFFF96100587FA8 /* ImageFilterOperation.swift */; };
+		878667B71E0004EF00587FA8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667B61E0004EF00587FA8 /* DetailsViewController.swift */; };
+		878667B91E00052C00587FA8 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667B81E00052C00587FA8 /* ImageTableViewCell.swift */; };
+		878667BB1E0018AA00587FA8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667BA1E0018AA00587FA8 /* NetworkManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +31,15 @@
 		878667921DFFE33200587FA8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		878667951DFFE33200587FA8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		878667971DFFE33200587FA8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		878667A81DFFE64E00587FA8 /* CellIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CellIdentifiable.swift; path = Protocols/CellIdentifiable.swift; sourceTree = "<group>"; };
+		878667AA1DFFE77000587FA8 /* Paginator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Paginator.swift; path = Classes/Paginator.swift; sourceTree = "<group>"; };
+		878667AC1DFFF15B00587FA8 /* OperationQueueHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OperationQueueHandler.swift; path = Classes/OperationQueueHandler.swift; sourceTree = "<group>"; };
+		878667AE1DFFF21500587FA8 /* ImadeDownloadOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImadeDownloadOperation.swift; path = Classes/ImadeDownloadOperation.swift; sourceTree = "<group>"; };
+		878667B11DFFF2C400587FA8 /* ImageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageModel.swift; path = Classes/ImageModel.swift; sourceTree = "<group>"; };
+		878667B31DFFF96100587FA8 /* ImageFilterOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageFilterOperation.swift; path = Classes/ImageFilterOperation.swift; sourceTree = "<group>"; };
+		878667B61E0004EF00587FA8 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		878667B81E00052C00587FA8 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Cells/ImageTableViewCell.swift; sourceTree = "<group>"; };
+		878667BA1E0018AA00587FA8 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Classes/NetworkManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +72,111 @@
 		8786678A1DFFE33200587FA8 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
-				8786678B1DFFE33200587FA8 /* AppDelegate.swift */,
-				8786678D1DFFE33200587FA8 /* ViewController.swift */,
-				8786678F1DFFE33200587FA8 /* Main.storyboard */,
-				878667921DFFE33200587FA8 /* Assets.xcassets */,
-				878667941DFFE33200587FA8 /* LaunchScreen.storyboard */,
-				878667971DFFE33200587FA8 /* Info.plist */,
+				878667A71DFFE5E900587FA8 /* Protocols */,
+				878667A61DFFE57700587FA8 /* Classes */,
+				878667A01DFFE4A600587FA8 /* Resources */,
+				878667A41DFFE53C00587FA8 /* Supporting Files */,
+				878667A11DFFE4BF00587FA8 /* UI */,
 			);
 			path = TestApp;
+			sourceTree = "<group>";
+		};
+		8786679F1DFFE47400587FA8 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				8786678B1DFFE33200587FA8 /* AppDelegate.swift */,
+			);
+			name = Application;
+			sourceTree = "<group>";
+		};
+		878667A01DFFE4A600587FA8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				878667921DFFE33200587FA8 /* Assets.xcassets */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		878667A11DFFE4BF00587FA8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				878667A51DFFE55100587FA8 /* Cells */,
+				878667A21DFFE4DF00587FA8 /* Interface */,
+				878667A31DFFE50A00587FA8 /* ViewControllers */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		878667A21DFFE4DF00587FA8 /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+				8786678F1DFFE33200587FA8 /* Main.storyboard */,
+				878667941DFFE33200587FA8 /* LaunchScreen.storyboard */,
+			);
+			name = Interface;
+			sourceTree = "<group>";
+		};
+		878667A31DFFE50A00587FA8 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				8786678D1DFFE33200587FA8 /* ViewController.swift */,
+				878667B61E0004EF00587FA8 /* DetailsViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		878667A41DFFE53C00587FA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				878667971DFFE33200587FA8 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		878667A51DFFE55100587FA8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				878667B81E00052C00587FA8 /* ImageTableViewCell.swift */,
+			);
+			name = Cells;
+			sourceTree = "<group>";
+		};
+		878667A61DFFE57700587FA8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8786679F1DFFE47400587FA8 /* Application */,
+				878667AA1DFFE77000587FA8 /* Paginator.swift */,
+				878667B51DFFF9AE00587FA8 /* QueueHandler */,
+				878667B01DFFF29B00587FA8 /* CoreNetworking */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		878667A71DFFE5E900587FA8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				878667A81DFFE64E00587FA8 /* CellIdentifiable.swift */,
+			);
+			name = Protocols;
+			sourceTree = "<group>";
+		};
+		878667B01DFFF29B00587FA8 /* CoreNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				878667B11DFFF2C400587FA8 /* ImageModel.swift */,
+				878667BA1E0018AA00587FA8 /* NetworkManager.swift */,
+			);
+			name = CoreNetworking;
+			sourceTree = "<group>";
+		};
+		878667B51DFFF9AE00587FA8 /* QueueHandler */ = {
+			isa = PBXGroup;
+			children = (
+				878667AC1DFFF15B00587FA8 /* OperationQueueHandler.swift */,
+				878667AE1DFFF21500587FA8 /* ImadeDownloadOperation.swift */,
+				878667B31DFFF96100587FA8 /* ImageFilterOperation.swift */,
+			);
+			name = QueueHandler;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +252,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878667AD1DFFF15B00587FA8 /* OperationQueueHandler.swift in Sources */,
 				8786678E1DFFE33200587FA8 /* ViewController.swift in Sources */,
+				878667B71E0004EF00587FA8 /* DetailsViewController.swift in Sources */,
+				878667A91DFFE64E00587FA8 /* CellIdentifiable.swift in Sources */,
+				878667BB1E0018AA00587FA8 /* NetworkManager.swift in Sources */,
 				8786678C1DFFE33200587FA8 /* AppDelegate.swift in Sources */,
+				878667AF1DFFF21500587FA8 /* ImadeDownloadOperation.swift in Sources */,
+				878667AB1DFFE77000587FA8 /* Paginator.swift in Sources */,
+				878667B91E00052C00587FA8 /* ImageTableViewCell.swift in Sources */,
+				878667B21DFFF2C400587FA8 /* ImageModel.swift in Sources */,
+				878667B41DFFF96100587FA8 /* ImageFilterOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
