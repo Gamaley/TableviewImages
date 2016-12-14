@@ -15,7 +15,6 @@ class NetworkModel: NSObject, Mappable {
     
     // MARK: - Properties
     
-    var networkManagerErrorRepresenter: NetworkManagerErrorRepresentable?
     var networkManagerTask: URLSessionTask?
     var operationCompleted: NetworkOperationCompletedHandler?
     var operationFailed: NetworkOperationFailedHandler?
@@ -59,19 +58,15 @@ class NetworkModel: NSObject, Mappable {
     
     func map(error: NetworkManager.Errors) {
         guard let handler = operationFailed else { return }
-        guard let representer = networkManagerErrorRepresenter else {
-            handler("Unknown error.")
-            return
-        }
-        handler(representer.stringRepresentation(fromNetworManagerError: error))
+        handler(String(describing: error))
     }
     
     // MARK: - Public Methods
     
-    func getImages(searchString: String?, page: Int = 1, itemsPerPage count: Int = 100, completed:NetworkOperationCompletedHandler?, failed: NetworkOperationFailedHandler?) {
+    func getImages(searchString: String?, page: Int = 1, itemsPerPage count: Int = 100, completed: NetworkOperationCompletedHandler?, failed: NetworkOperationFailedHandler?) {
         
         var path = "/api"
-        var queryItems = [URLQueryItem(name: "key", value: NetworkManager.shared.consumerKey),URLQueryItem(name: "per_page", value: String(count)),URLQueryItem(name: "page", value: String(page)),URLQueryItem(name: "safesearch", value: "true")]
+        var queryItems = [URLQueryItem(name: "key", value: NetworkManager.shared.consumerKey),URLQueryItem(name: "per_page", value: String(count)),URLQueryItem(name: "page", value: String(page)),URLQueryItem(name: "safesearch", value: "false")]
         if let searchString = searchString {
             queryItems.append(URLQueryItem(name: "q", value: searchString))
         }
@@ -79,12 +74,11 @@ class NetworkModel: NSObject, Mappable {
         
         guard let url = URL(string: path, relativeTo: NetworkManager.shared.baseURL) else { return }
         
-        var request = URLRequest.init(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 80)
+        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 80)
         request.httpMethod = "GET"
         
         self.send(request, completed: completed, failed: failed)
     }
-    
 
     func send(_ request: URLRequest, completed: NetworkOperationCompletedHandler? = nil, failed: NetworkOperationFailedHandler? = nil) {
         operationCompleted = completed
@@ -95,7 +89,7 @@ class NetworkModel: NSObject, Mappable {
     
     // MARK: - Private Methods
     
-    fileprivate func performRequestCompletionHandler(_ data: Data?, request: URLRequest, response: URLResponse?, error: NetworkManager.Errors?) {
+    fileprivate func performRequestCompletionHandler(_ data: Data?, response: URLResponse?, error: NetworkManager.Errors?) {
         if let data = data {
             map(data: data)
         } else if let error = error {

@@ -10,6 +10,8 @@ import UIKit
 
 final class ImageTableViewCell: UITableViewCell, CellIdentifiable {
     
+    //MARK: - Properties
+    
     fileprivate var likesLabel: UILabel!
     fileprivate var pictureView: UIImageView!
     var picture: UIImage? {
@@ -25,6 +27,8 @@ final class ImageTableViewCell: UITableViewCell, CellIdentifiable {
             likesLabel.text = text
         }
     }
+    
+    //MARK: - Initializers
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -34,7 +38,6 @@ final class ImageTableViewCell: UITableViewCell, CellIdentifiable {
         pictureView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(pictureView)
     
-        
         likesLabel = UILabel()
         likesLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(likesLabel)
@@ -53,6 +56,7 @@ final class ImageTableViewCell: UITableViewCell, CellIdentifiable {
         fatalError("init(coder:) has not been implemented")
     }
 
+    //MARK: - Lifecycle
     
     override func prepareForReuse() {
         pictureView.image = UIImage(named: "placeholder.jpg")

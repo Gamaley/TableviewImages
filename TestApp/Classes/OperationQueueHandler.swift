@@ -10,6 +10,8 @@ import Foundation
 
 final public class OperationQueueHandler {
     
+    //MARK: - Properties
+    
     lazy var downloadsInProgress = [IndexPath:Operation]()
     lazy var downloadQueue: OperationQueue = {
         var queue = OperationQueue()
@@ -25,6 +27,8 @@ final public class OperationQueueHandler {
         queue.maxConcurrentOperationCount = 1
         return queue
     }()
+    
+    //MARK: - Public Methods
     
     public func suspendAllOperations () {
         downloadQueue.isSuspended = true

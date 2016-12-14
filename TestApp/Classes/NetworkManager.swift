@@ -12,7 +12,7 @@ public final class NetworkManager {
     
     static let shared = NetworkManager()
     
-    public typealias PerformRequestCompletedHandler = (_ data: Data?, _ request: URLRequest,
+    public typealias PerformRequestCompletedHandler = (_ data: Data?,
         _ response: URLResponse?, _ error: Errors?) -> Void
     public typealias ImageDownloadCompletedHandler = (_ image: UIImage) -> Void
     public typealias ImageDownloadFailedHandler = (_ error: String) -> Void
@@ -45,19 +45,19 @@ public final class NetworkManager {
                 if let error = error {
                     switch error._code {
                     case NSURLErrorCancelled:
-                        completion(nil, request, response, .cancelled)
+                        completion(nil, response, .cancelled)
                     case NSURLErrorNetworkConnectionLost:
-                        completion(nil, request, response, .networkConnectionLost)
+                        completion(nil, response, .networkConnectionLost)
                     case NSURLErrorNotConnectedToInternet:
-                        completion(nil, request, response, .notConnectedToInternet)
+                        completion(nil, response, .notConnectedToInternet)
                     case NSURLErrorUserAuthenticationRequired:
-                        completion(nil, request, response, .userAuthenticationRequired)
+                        completion(nil, response, .userAuthenticationRequired)
                     default:
-                        completion(nil, request, response, .systemError(error: error as NSError))
+                        completion(nil, response, .systemError(error: error as NSError))
                     }
                 } else {
                     guard let HTTPResponse = response as? HTTPURLResponse else {
-                        completion(nil, request, response, .cannotParseResponse)
+                        completion(nil, response, .cannotParseResponse)
                         return
                     }
                     
@@ -65,11 +65,11 @@ public final class NetworkManager {
                     
                     switch statusCode {
                     case 0...299:
-                        completion(data, request, HTTPResponse, nil)
+                        completion(data, HTTPResponse, nil)
                     case 401:
-                        completion(nil, request, response, .userAuthenticationRequired)
+                        completion(nil, response, .userAuthenticationRequired)
                     default:
-                        completion(nil, request, response, .serverError(code: statusCode, data: data))
+                        completion(nil, response, .serverError(code: statusCode, data: data))
                     }
                 }
             }
