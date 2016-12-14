@@ -12,20 +12,20 @@ final class ImageFilterOperation: Operation {
     
     let imageModel: ImageModel
     
-    init(picture: ImageModel) {
-        self.imageModel = picture
+    init(image: ImageModel) {
+        self.imageModel = image
     }
     
     override func main () {
         if self.isCancelled {
             return
         }
-        if self.imageModel.state != .Downloaded {
+        if self.imageModel.state != .downloaded {
             return
         }
         if let filteredImage = self.imageModel.image {
             self.imageModel.image = filteredImage
-            self.imageModel.state = .Filtered
+            self.imageModel.state = .filtered
         }
     }
 }

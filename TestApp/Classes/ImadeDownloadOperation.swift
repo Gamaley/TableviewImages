@@ -20,17 +20,17 @@ final class ImadeDownloadOperation: Operation {
         if self.isCancelled {
             return
         }
-        guard let urlString = self.imageModel.imageURL, let url = URL(string: urlString) else { return }
-        guard let imageData = try? Data(contentsOf: url) else { return }
+        guard let url = self.imageModel.imageURL else { return }
+        let imageData = try? Data(contentsOf: url)
         
         if self.isCancelled {
             return
         }
-        if imageData.count > 0 {
+        if let imageData = imageData, imageData.count > 0 {
             self.imageModel.image = UIImage(data:imageData)
-            self.imageModel.state = .Downloaded
+            self.imageModel.state = .downloaded
         } else {
-            self.imageModel.state = .Failed
+            self.imageModel.state = .failed
             self.imageModel.image = UIImage(named: "Failed.jpg")
         }
     }

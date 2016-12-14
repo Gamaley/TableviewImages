@@ -21,7 +21,28 @@
 		878667B71E0004EF00587FA8 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667B61E0004EF00587FA8 /* DetailsViewController.swift */; };
 		878667B91E00052C00587FA8 /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667B81E00052C00587FA8 /* ImageTableViewCell.swift */; };
 		878667BB1E0018AA00587FA8 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667BA1E0018AA00587FA8 /* NetworkManager.swift */; };
+		878667C21E0021CE00587FA8 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 878667C11E0021CE00587FA8 /* ObjectMapper.framework */; };
+		878667C31E0021CE00587FA8 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 878667C11E0021CE00587FA8 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		878667C81E00242400587FA8 /* URLMappableTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667C71E00242400587FA8 /* URLMappableTransform.swift */; };
+		878667CA1E00349600587FA8 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667C91E00349600587FA8 /* NetworkModel.swift */; };
+		878667CC1E0037EA00587FA8 /* NetworkManagerErrorRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878667CB1E0037EA00587FA8 /* NetworkManagerErrorRepresentable.swift */; };
+		878E59691E0047F700028DEF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878E59681E0047F700028DEF /* String.swift */; };
+		87BA4D7B1E0195F10005CA44 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA4D7A1E0195F10005CA44 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		878667C41E0021CE00587FA8 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				878667C31E0021CE00587FA8 /* ObjectMapper.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		878667881DFFE33200587FA8 /* TestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +61,13 @@
 		878667B61E0004EF00587FA8 /* DetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		878667B81E00052C00587FA8 /* ImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ImageTableViewCell.swift; path = Cells/ImageTableViewCell.swift; sourceTree = "<group>"; };
 		878667BA1E0018AA00587FA8 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkManager.swift; path = Classes/NetworkManager.swift; sourceTree = "<group>"; };
+		878667BF1E0021A900587FA8 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = "build/Debug-iphoneos/ObjectMapper.framework"; sourceTree = "<group>"; };
+		878667C11E0021CE00587FA8 /* ObjectMapper.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ObjectMapper.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		878667C71E00242400587FA8 /* URLMappableTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = URLMappableTransform.swift; path = Classes/URLMappableTransform.swift; sourceTree = "<group>"; };
+		878667C91E00349600587FA8 /* NetworkModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkModel.swift; path = Classes/NetworkModel.swift; sourceTree = "<group>"; };
+		878667CB1E0037EA00587FA8 /* NetworkManagerErrorRepresentable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManagerErrorRepresentable.swift; sourceTree = "<group>"; };
+		878E59681E0047F700028DEF /* String.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String.swift; path = Extensions/String.swift; sourceTree = "<group>"; };
+		87BA4D7A1E0195F10005CA44 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewController.swift; path = Extensions/UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878667C21E0021CE00587FA8 /* ObjectMapper.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,8 +85,10 @@
 		8786677F1DFFE33200587FA8 = {
 			isa = PBXGroup;
 			children = (
+				878667C51E00223800587FA8 /* Frameworks */,
 				8786678A1DFFE33200587FA8 /* TestApp */,
 				878667891DFFE33200587FA8 /* Products */,
+				878667BE1E0021A900587FA8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -72,6 +103,7 @@
 		8786678A1DFFE33200587FA8 /* TestApp */ = {
 			isa = PBXGroup;
 			children = (
+				878E59671E0047CC00028DEF /* Extensions */,
 				878667A71DFFE5E900587FA8 /* Protocols */,
 				878667A61DFFE57700587FA8 /* Classes */,
 				878667A01DFFE4A600587FA8 /* Resources */,
@@ -156,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				878667A81DFFE64E00587FA8 /* CellIdentifiable.swift */,
+				878667CB1E0037EA00587FA8 /* NetworkManagerErrorRepresentable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -163,8 +196,10 @@
 		878667B01DFFF29B00587FA8 /* CoreNetworking */ = {
 			isa = PBXGroup;
 			children = (
+				878667C91E00349600587FA8 /* NetworkModel.swift */,
 				878667B11DFFF2C400587FA8 /* ImageModel.swift */,
 				878667BA1E0018AA00587FA8 /* NetworkManager.swift */,
+				878667C71E00242400587FA8 /* URLMappableTransform.swift */,
 			);
 			name = CoreNetworking;
 			sourceTree = "<group>";
@@ -179,6 +214,39 @@
 			name = QueueHandler;
 			sourceTree = "<group>";
 		};
+		878667BE1E0021A900587FA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				878667BF1E0021A900587FA8 /* ObjectMapper.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		878667C51E00223800587FA8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				878667C61E00224300587FA8 /* ObjectMapper */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		878667C61E00224300587FA8 /* ObjectMapper */ = {
+			isa = PBXGroup;
+			children = (
+				878667C11E0021CE00587FA8 /* ObjectMapper.framework */,
+			);
+			name = ObjectMapper;
+			sourceTree = "<group>";
+		};
+		878E59671E0047CC00028DEF /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				878E59681E0047F700028DEF /* String.swift */,
+				87BA4D7A1E0195F10005CA44 /* UIViewController.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -189,6 +257,7 @@
 				878667841DFFE33200587FA8 /* Sources */,
 				878667851DFFE33200587FA8 /* Frameworks */,
 				878667861DFFE33200587FA8 /* Resources */,
+				878667C41E0021CE00587FA8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,10 +327,15 @@
 				878667A91DFFE64E00587FA8 /* CellIdentifiable.swift in Sources */,
 				878667BB1E0018AA00587FA8 /* NetworkManager.swift in Sources */,
 				8786678C1DFFE33200587FA8 /* AppDelegate.swift in Sources */,
+				878667C81E00242400587FA8 /* URLMappableTransform.swift in Sources */,
 				878667AF1DFFF21500587FA8 /* ImadeDownloadOperation.swift in Sources */,
 				878667AB1DFFE77000587FA8 /* Paginator.swift in Sources */,
+				878667CC1E0037EA00587FA8 /* NetworkManagerErrorRepresentable.swift in Sources */,
 				878667B91E00052C00587FA8 /* ImageTableViewCell.swift in Sources */,
 				878667B21DFFF2C400587FA8 /* ImageModel.swift in Sources */,
+				878667CA1E00349600587FA8 /* NetworkModel.swift in Sources */,
+				878E59691E0047F700028DEF /* String.swift in Sources */,
+				87BA4D7B1E0195F10005CA44 /* UIViewController.swift in Sources */,
 				878667B41DFFF96100587FA8 /* ImageFilterOperation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -386,6 +460,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 38RMNWSM28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = TestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TestAppPerf;
@@ -399,6 +477,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 38RMNWSM28;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos",
+				);
 				INFOPLIST_FILE = TestApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TestAppPerf;

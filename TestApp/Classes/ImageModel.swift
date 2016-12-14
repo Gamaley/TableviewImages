@@ -7,22 +7,36 @@
 //
 
 import UIKit
+import ObjectMapper
 
 enum ImageState {
-    case New, Downloaded, Filtered, Failed
+    case new, downloaded, filtered, failed
 }
 
-final class ImageModel {
+final class ImageModel: NetworkModel {
     
     //MARK: - Public Properties
     
     var id: Int?
-    var name: String?
-    var imageURL: String?
     var likes: Int?
     var downloads: Int?
-    var webformatImageURL: String?
-    var state = ImageState.New
-    var image = UIImage(named: "placeholder.png")
-   
+    var imageURL: URL?
+    var fullSizeImageURL: URL?
+    var state: ImageState  = .new
+    var image = UIImage(named: "placeholder.jpg")
+
+    // MARK: - Mapping
+    
+    required init(map: Map) {
+        super.init()
+    }
+  
+    override func mapping(map: Map) {
+        id               <- map["id"]
+        likes            <- map["likes"]
+        downloads        <- map["downloads"]
+        imageURL         <- (map["previewURL"], URLMappableTransform())
+        fullSizeImageURL <- (map["webformatURL"], URLMappableTransform())
+    }
+    
 }

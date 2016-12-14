@@ -11,7 +11,7 @@ import Foundation
 public final class Paginator<T> {
     
     typealias Elements = Array<T>
-    typealias Fetch = (_ page: Int, _ count: Int, _ completion: (_ result: Elements) -> Void) -> Void
+    typealias Fetch = (_ page: Int, _ count: Int, _ completion: @escaping (_ result: Elements) -> Void) -> Void
     
     //MARK: - Properties
     

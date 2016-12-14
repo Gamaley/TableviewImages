@@ -6,8 +6,110 @@
 //  Copyright © 2016 Vladyslav Gamalii. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
-class NetworkManager {
-   
+public final class NetworkManager {
+    
+    static let shared = NetworkManager()
+    
+    public typealias PerformRequestCompletedHandler = (_ data: Data?, _ request: URLRequest,
+        _ response: URLResponse?, _ error: Errors?) -> Void
+    public typealias ImageDownloadCompletedHandler = (_ image: UIImage) -> Void
+    public typealias ImageDownloadFailedHandler = (_ error: String) -> Void
+        
+    public enum Errors: Error {
+        case cancelled
+        case cannotParseResponse
+        case networkConnectionLost
+        case notConnectedToInternet
+        case serverError(code: Int, data: Data?)
+        case systemError(error: NSError)
+        case userAuthenticationRequired
+    }
+    
+    // MARK: - Properties
+    
+    let baseURL = URL(string: "https://pixabay.com")!
+    let consumerKey = "3777329-97c398c7e896d9c63f6ef1c0b"
+    public private(set) var session: URLSession!
+    
+    // MARK: - Public Methods
+    
+    public func perform(request: URLRequest, completion: @escaping PerformRequestCompletedHandler) -> URLSessionTask? {
+        if let _ = session {} else {
+           session = createSession()
+        }
+    
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            DispatchQueue.main.async { () -> Void in
+                if let error = error {
+                    switch error._code {
+                    case NSURLErrorCancelled:
+                        completion(nil, request, response, .cancelled)
+                    case NSURLErrorNetworkConnectionLost:
+                        completion(nil, request, response, .networkConnectionLost)
+                    case NSURLErrorNotConnectedToInternet:
+                        completion(nil, request, response, .notConnectedToInternet)
+                    case NSURLErrorUserAuthenticationRequired:
+                        completion(nil, request, response, .userAuthenticationRequired)
+                    default:
+                        completion(nil, request, response, .systemError(error: error as NSError))
+                    }
+                } else {
+                    guard let HTTPResponse = response as? HTTPURLResponse else {
+                        completion(nil, request, response, .cannotParseResponse)
+                        return
+                    }
+                    
+                    let statusCode = HTTPResponse.statusCode
+                    
+                    switch statusCode {
+                    case 0...299:
+                        completion(data, request, HTTPResponse, nil)
+                    case 401:
+                        completion(nil, request, response, .userAuthenticationRequired)
+                    default:
+                        completion(nil, request, response, .serverError(code: statusCode, data: data))
+                    }
+                }
+            }
+        })
+        
+        task.resume()
+        return task
+    }
+    
+    func download(_ imageURL: URL, completion: @escaping ImageDownloadCompletedHandler, failure: @escaping ImageDownloadFailedHandler) {
+        let request = URLRequest(url: imageURL)
+        if let _ = session {} else {
+            session = createSession()
+        }
+        let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
+            DispatchQueue.main.async { () -> Void in
+                if let error = error {
+                    failure(error.localizedDescription)
+                    return
+                } else {
+                    if let data = data,
+                        let image = UIImage(data: data) {
+                        completion(image)
+                    } else {
+                        failure("No image has been downloaded")
+                    }
+                }
+            }
+        })
+        
+        task.resume()
+    }
+
+    
+    // MARK: - Private Methods
+    
+    private func createSession() -> URLSession {
+        let configuration = URLSessionConfiguration.default
+        let session = URLSession(configuration: configuration)
+        
+        return session
+    }
 }
