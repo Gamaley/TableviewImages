@@ -74,7 +74,7 @@ class NetworkModel: NSObject, Mappable {
         
         guard let url = URL(string: path, relativeTo: NetworkManager.shared.baseURL) else { return }
         
-        var request = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 80)
+        var request = URLRequest(url: url, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 80)
         request.httpMethod = "GET"
         
         self.send(request, completed: completed, failed: failed)

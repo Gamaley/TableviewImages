@@ -39,7 +39,6 @@ public final class NetworkManager {
         if let _ = session {} else {
            session = createSession()
         }
-    
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
             DispatchQueue.main.async { () -> Void in
                 if let error = error {
@@ -80,10 +79,17 @@ public final class NetworkManager {
     }
     
     func download(_ imageURL: URL, completion: @escaping ImageDownloadCompletedHandler, failure: @escaping ImageDownloadFailedHandler) {
-        let request = URLRequest(url: imageURL)
+        let request = URLRequest(url: imageURL, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 80)
         if let _ = session {} else {
             session = createSession()
         }
+        
+        let cache = URLCache.shared.cachedResponse(for: request)
+        if let cacheResponce = cache, let image = UIImage(data: cacheResponce.data) {
+            completion(image)
+            return
+        }
+        
         let task = session.dataTask(with: request, completionHandler: { (data, response, error) in
             DispatchQueue.main.async { () -> Void in
                 if let error = error {
@@ -92,6 +98,10 @@ public final class NetworkManager {
                 } else {
                     if let data = data,
                         let image = UIImage(data: data) {
+                        if let response = response {
+                            let cacheResponse = CachedURLResponse(response: response, data: data)
+                            URLCache.shared.storeCachedResponse(cacheResponse, for: request)
+                        }
                         completion(image)
                     } else {
                         failure("No image has been downloaded")
@@ -108,8 +118,10 @@ public final class NetworkManager {
     
     private func createSession() -> URLSession {
         let configuration = URLSessionConfiguration.default
+        configuration.requestCachePolicy = .returnCacheDataElseLoad
+        configuration.urlCache = URLCache.shared
         let session = URLSession(configuration: configuration)
-        
         return session
     }
 }
+

@@ -157,7 +157,7 @@ extension ViewController: UITableViewDelegate {
     
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if tableView.contentOffset.y > tableView.contentSize.height * 0.9 {
+        if tableView.contentOffset.y > tableView.contentSize.height * 0.9 && !searchController.isActive {
             if !isNewDataLoading {
                 paginator.next(fetchNextPage: fetchNextPage, onFinish: updateUserInterface)
             }
